@@ -1,4 +1,4 @@
-def checkk(i, c):  # на вход получает одно из значений координат из списка "не опасных" точек на шахматной доске
+def checkk(i: tuple, c:int):  # на вход получает одно из значений координат из списка "не опасных" точек на шахматной доске
     global dangers_places, places, n, count, k, new_file, dangers_places_double, places_double, l, free_place, save_in_file
     if c != 1:#добавляем для выводы на шахматную доску
         summ = 0
@@ -76,7 +76,7 @@ def checkk(i, c):  # на вход получает одно из значени
 
 
 
-def dangers_places_def(n, i, c):  # поиск опасных "координат", переменная отвечает за добавление найденных опасных ходов в общий список. Если с = 1, то будут добавлены, если с = 0 - нет
+def dangers_places_def(n:int, i:tuple, c:int)-> list:  # поиск опасных "координат", переменная отвечает за добавление найденных опасных ходов в общий список. Если с = 1, то будут добавлены, если с = 0 - нет
     # везде есть проверка на то, чтобы значения были в пределах доски
     i = list(i)
     global danger
@@ -138,7 +138,7 @@ def dangers_places_def(n, i, c):  # поиск опасных "координа�
     return danger
 
 
-def free_place_def(n):
+def free_place_def(n:int)-> list:
     free_place = []
     for i in range(
             n):  # перебор всех координат на N-ой доске. Если координата не входит в "опасный" список и в список уже размещенных фигур, то координата добавляется в список свободных мест
@@ -148,7 +148,7 @@ def free_place_def(n):
     return free_place
 
 
-def get_data():
+def get_data() -> int:
     with open(f'input.txt', 'r', encoding='utf-8') as file:
         n, l, k = map(int, file.readline().split())
         places = []
@@ -159,6 +159,8 @@ def get_data():
 
 
 def main():
+    n: int; l: int; k: int; count: int; summ: int
+    dangers_places: list; places: list; new_file: list; dangers_places_double: list; places_double: list; free_place: list; save_in_file: list
     global dangers_places, places, n, count, k, new_file, dangers_places_double, places_double, l, free_place, save_in_file
     n, l, k, places = get_data()
     summ = 0
