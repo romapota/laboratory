@@ -1,5 +1,17 @@
+n: int;
+l: int;
+k: int;
+count: int;
+summ: int
+dangers_places: list;
+places: list;
+new_file: list;
+dangers_places_double: list;
+places_double: list;
+free_place: list;
+save_in_file: list
 def checkk(i: tuple, c:int):  # на вход получает одно из значений координат из списка "не опасных" точек на шахматной доске
-    global dangers_places, places, n, count, k, new_file, dangers_places_double, places_double, l, free_place, save_in_file
+    global dangers_places_double, places_double, new_file
     if c != 1:#добавляем для выводы на шахматную доску
         summ = 0
         checks = 0
@@ -159,8 +171,6 @@ def get_data() -> int:
 
 
 def main():
-    n: int; l: int; k: int; count: int; summ: int
-    dangers_places: list; places: list; new_file: list; dangers_places_double: list; places_double: list; free_place: list; save_in_file: list
     global dangers_places, places, n, count, k, new_file, dangers_places_double, places_double, l, free_place, save_in_file
     n, l, k, places = get_data()
     summ = 0
@@ -203,6 +213,9 @@ def main():
     else:
         return print('no solution')
 
+
+if __name__ == '__main__':
+    main()
 
 if __name__ == '__main__':
     main()
