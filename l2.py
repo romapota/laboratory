@@ -1,5 +1,4 @@
 from numpy import array
-from time import time
 
 vars: list
 allVar: list
@@ -48,7 +47,7 @@ def put_danger(board: list, x: int, y: int, n: int) -> bool:#записывае�
         return True
     else:
         return True
-def put_figure(board: list, n: int, x: int, y: int, vars: list) -> None:#размещает фигуру на доске
+def put_figure(board: list, n: int, x: int, y: int, vars: list) -> None:#размещение фигуры на доске
     board[x][y] = 1
     vars.append((x, y))
     search_place(board, x, y, n)
@@ -74,7 +73,6 @@ def print_board_in_console(board: list) -> None:#вывод доски
                 s += " " + '0'
         print(s)
 def main() -> None:
-    start_time = time()
     vars = []
     allVar = []
     with open("input.txt", "r") as f_f:
@@ -93,8 +91,6 @@ def main() -> None:
     #подбираем расстановки
     varios(board, 0, -1, l, n, vars, allVar)
     save_vars(allVar)
-    end_time = time()
-    print('Время выполнения: ', end_time-start_time)
 
 if __name__ == "__main__":
     main()
